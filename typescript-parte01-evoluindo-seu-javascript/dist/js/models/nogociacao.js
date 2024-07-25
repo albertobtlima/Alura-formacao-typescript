@@ -5,15 +5,15 @@ export class Negociacao {
         this._valor = valor;
     }
     get data() {
-        return this.data;
+        return this._data;
     }
     get quantidade() {
-        return this.quantidade;
+        return this._quantidade;
     }
     get valor() {
-        return this.valor;
+        return this._valor;
     }
     get volume() {
-        return this.quantidade * this.valor;
+        return this._quantidade * this._valor;
     }
 }
