@@ -28,11 +28,15 @@ export class NegociacaoController {
             return;
         }
         this.negociacoes.adiciona(negociacao);
+        console.log(negociacao.paraTexto());
+        console.log(this.negociacoes.paraTexto());
         this.limparFormulario();
         this.atualizaView();
     }
     importaDados() {
-        this.negociacoesService.obterNegociacoesDoDia().then((negociacoesDeHoje) => {
+        this.negociacoesService
+            .obterNegociacoesDoDia()
+            .then((negociacoesDeHoje) => {
             for (let negociacao of negociacoesDeHoje) {
                 this.negociacoes.adiciona(negociacao);
             }

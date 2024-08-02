@@ -41,17 +41,21 @@ export class NegociacaoController {
       }
 
       this.negociacoes.adiciona(negociacao);
+      console.log(negociacao.paraTexto());
+      console.log(this.negociacoes.paraTexto());
       this.limparFormulario();
       this.atualizaView();
    }
 
    public importaDados(): void {
-      this.negociacoesService.obterNegociacoesDoDia().then((negociacoesDeHoje) => {
-         for (let negociacao of negociacoesDeHoje) {
-            this.negociacoes.adiciona(negociacao);
-         }
-         this.negociacoesView.update(this.negociacoes);
-      });
+      this.negociacoesService
+         .obterNegociacoesDoDia()
+         .then((negociacoesDeHoje) => {
+            for (let negociacao of negociacoesDeHoje) {
+               this.negociacoes.adiciona(negociacao);
+            }
+            this.negociacoesView.update(this.negociacoes);
+         });
    }
 
    private ehDiaUtil(data: Date) {
